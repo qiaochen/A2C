@@ -8,9 +8,11 @@ The latest version of this project has used the following common tricks:
 ## Learning Algorithm
 
 - Network Architecture
+
   ![img](https://raw.githubusercontent.com/qiaochen/A2C/master/network_architecture.jpg)
+  
 The input state vector is encoded by 1 fully connected layers befere branching into the `Actor` and the `Critic` heads, i.e. the actor and the critic share the input encoder.
-The Actor head outputs the `mean` values of the action vector variable, while the Critic head outputs the `state values`. There is also a parameter vector learning the standard deviations of the action vector variable, the standard deviation and mean vector would be used to parameterize a multi-variable normal distribution which is used to sample actions given the current state.
+The Actor head outputs the `mean` vector for the action vector variable to be sampled, while the Critic head outputs the `state value` vector. There is also a vector parameter learning the standard deviations for the action vector distribution, the standard deviation and mean vector would be used to parameterize a multi-variable normal distribution which is used to sample actions given the current state.
 
 
 - Hyper-parameters
@@ -20,6 +22,7 @@ The Actor head outputs the `mean` values of the action vector variable, while th
   - gamma = 0.95
   - value loss weight = 1.0
   - gradient clip threshold = 5
+  
 - Training Strategy
   - Adam is used as the optimizer
   - An `early-stop` scheme is applied to stop training if the 100-episode-average score continues decreasing over `10` consecutive episodes.
@@ -28,16 +31,23 @@ The Actor head outputs the `mean` values of the action vector variable, while th
 
 ## Performance Evaluation
 ### Training
-During training, the performance stabilized since around the episode 240 after a history of fluctuation. Before that, the first time the performance surpassed 30 occurred at around episode 120. The episodic and average (over 100 latest episodes) scores are plotted as following:
-- Reward per-episode during training
+During training, the performance stabilized from around the 240th episode after a series of fluctuation. Before that, the first time the performance surpassed 30 occurred at around episode 120. The episodic and average (over 100 latest episodes) scores are plotted as following:
+
+- Total rewards per-episode during training
+
 ![img](https://raw.githubusercontent.com/qiaochen/A2C/master/training_score_plot.png)
-- Average reward over latest 100 episodes during training
+
+- Average total rewards over latest 100 episodes during training
+
 ![img](https://raw.githubusercontent.com/qiaochen/A2C/master/training_100avgscore_plot.png)
+
 As can be seen from the plot, the average score gradually reached and passed 30 during training, before the early-stopping scheme terminates the training process.
 
 ### Testing
 The scores of 100 testing episodes are visualized as follows:
+
 ![img](https://raw.githubusercontent.com/qiaochen/A2C/master/test_score_plot.png)
+
 The model obtained an average score of 37.91 during testing, which is over 30.
 
 ## Conclusion

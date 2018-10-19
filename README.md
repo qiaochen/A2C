@@ -1,7 +1,9 @@
 # Project Details
 ---
 In this project, an Advantage Actor Critic (A2C) network is trained to control automatic arms that will try to touch and follow the moving balls.
+
 ![img](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/June/5b1ea778_reacher/reacher.gif)
+
 ## The Environment
 The environment for this project involves controlling a double-jointed arm to reach target locations.
 ### State Space
@@ -19,13 +21,15 @@ An average score of `+30` over `100` consecutive episodes, and over all agents.
 
 # Getting Started
 ## Step 1: Clone the Project and Install Dependencies
+
 \*Please prepare a python3 virtual environment if necessary.
 ```
 git clone https://github.com/qiaochen/A2C.git
 cd install_requirements
 pip install .
 ```
-Step 2: Download the Unity Environment
+
+## Step 2: Download the Unity Environment
 For this project, I use the environment form **Udacity**. The links to modules at different system environments are copied here for convenience:
 *   Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux.zip)
 *   Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher.app.zip)
@@ -59,6 +63,7 @@ After training, the following files will be generated and placed in the project 
 - training_100avgscore_plot.png (a plot of avg. scores during training)
 - training_score_plot.png (a plot of per-episode scores during training)
 - unity-environment.log (log file created by Unity)
+
 ### Step 2: Test
 ```
 python test.py
